@@ -1,0 +1,48 @@
+x-swagger-router-controller: 'roles_controller'
+get:
+  description: This endpoint returns role by id
+  operationId: FindRoleById
+  produces:
+  - application/json
+  parameters:
+  - name: id
+    in: path
+    type: string
+    required: true
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "#/definitions/Role"
+delete:
+  description: Delete a role by ID
+  operationId: DeleteRoleById
+  parameters:
+  - name: id
+    in: path
+    required: true
+    type: string
+  responses:
+    204:
+      description: role deleted
+put:
+  description: update a single role by id
+  operationId: UpdateRoleById
+  produces:
+  - application/json
+  parameters:
+  - name: id
+    in: path
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: the updated role
+    required: true
+    schema:
+      $ref: "#/definitions/Role"
+  responses:
+    "200":
+      description: Role updated
+      schema:
+        $ref: "#/definitions/Role"

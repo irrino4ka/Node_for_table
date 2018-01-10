@@ -1,0 +1,16 @@
+Reporting:
+  $ref: ./reporting.yaml
+Role:
+  $ref: ./role.yaml
+GeneralResponse:
+  properties:
+    message:
+      type: string
+  required:
+  - message
+ErrorResponse:
+  required:
+     - message
+  properties:
+    message:
+      type: string

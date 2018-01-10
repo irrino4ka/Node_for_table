@@ -1,0 +1,10 @@
+image: node:6.11.1
+variables:
+  HEROKU_STAGING_API_KEY: "ad3fbeb4-0fee-4f29-bab0-a4305764bf24"
+staging:
+  type: deploy
+  script:
+  - gem install dpl
+  - dpl --provider=heroku --app=ita-app-staging --api-key=$HEROKU_STAGING_API_KEY
+  only:
+  - dev

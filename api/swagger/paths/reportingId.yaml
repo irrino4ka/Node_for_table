@@ -1,0 +1,25 @@
+x-swagger-router-controller: 'reporting-controller'
+put:
+  operationId: update
+  description: Update reporting information
+  parameters:
+  - name: id
+    description: Reporting id
+    type: string
+    in: path
+    required: true
+  - name: reporting
+    description: Reporting properties
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/Reporting"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "#/definitions/GeneralResponse"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/ErrorResponse"

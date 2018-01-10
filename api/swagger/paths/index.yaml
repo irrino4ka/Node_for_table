@@ -1,0 +1,8 @@
+/reporting:
+  $ref: ./reporting.yaml
+/reporting/{id}:
+  $ref: ./reportingId.yaml
+/role:
+  $ref: ./role.yaml
+/role/{id}:
+  $ref: ./roleId.yaml

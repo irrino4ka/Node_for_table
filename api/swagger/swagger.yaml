@@ -1,0 +1,197 @@
+swagger: '2.0'
+host: 'localhost:10010'
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+info:
+  version: 0.0.0
+  title: ITA.Cloud API
+paths:
+  /reporting:
+    x-swagger-router-controller: reporting-controller
+    get:
+      operationId: getAll
+      description: Returns list of Reporting
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Reporting'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    post:
+      operationId: create
+      description: Add a new reporting information
+      parameters:
+        - name: reporting
+          description: Reporting properties
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Reporting'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  '/reporting/{id}':
+    x-swagger-router-controller: reporting-controller
+    put:
+      operationId: update
+      description: Update reporting information
+      parameters:
+        - name: id
+          description: Reporting id
+          type: string
+          in: path
+          required: true
+        - name: reporting
+          description: Reporting properties
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Reporting'
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/GeneralResponse'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  /role:
+    x-swagger-router-controller: roles_controller
+    get:
+      description: This endpoint returns all roles
+      operationId: GetAllRoles
+      parameters: []
+      responses:
+        '200':
+          description: An array of roles
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Role'
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+    post:
+      description: Add new role
+      operationId: AddRole
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The role to create
+          schema:
+            $ref: '#/definitions/Role'
+      responses:
+        '200':
+          description: Created
+          schema:
+            type: object
+        default:
+          description: Error
+          schema:
+            $ref: '#/definitions/ErrorResponse'
+  '/role/{id}':
+    x-swagger-router-controller: roles_controller
+    get:
+      description: This endpoint returns role by id
+      operationId: FindRoleById
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Role'
+    delete:
+      description: Delete a role by ID
+      operationId: DeleteRoleById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+      responses:
+        '204':
+          description: role deleted
+    put:
+      description: update a single role by id
+      operationId: UpdateRoleById
+      produces:
+        - application/json
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          description: the updated role
+          required: true
+          schema:
+            $ref: '#/definitions/Role'
+      responses:
+        '200':
+          description: Role updated
+          schema:
+            $ref: '#/definitions/Role'
+definitions:
+  Reporting:
+    required:
+      - byte
+      - resource
+      - user
+    properties:
+      byte:
+        type: number
+      resource:
+        type: string
+      user:
+        type: string
+  Role:
+    required:
+      - user
+    properties:
+      role:
+        type: string
+      status:
+        type: string
+      user:
+        type: string
+  GeneralResponse:
+    properties:
+      message:
+        type: string
+    required:
+      - message
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+

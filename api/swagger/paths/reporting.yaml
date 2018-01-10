@@ -1,0 +1,35 @@
+x-swagger-router-controller: 'reporting-controller'
+get:
+  operationId: getAll
+  description: Returns list of Reporting
+  responses:
+    "200":
+      description: Success
+      schema:
+        type: array
+        items:
+          $ref: "#/definitions/Reporting"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/ErrorResponse"
+post:
+  operationId: create
+  description: Add a new reporting information
+  parameters:
+  - name: reporting
+    description: Reporting properties
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/Reporting"
+  responses:
+    "200":
+      description: Success
+      schema:
+        $ref: "#/definitions/GeneralResponse"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/ErrorResponse"
+    

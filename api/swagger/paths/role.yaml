@@ -1,0 +1,36 @@
+x-swagger-router-controller: 'roles_controller'
+get:
+  description: "This endpoint returns all roles"
+  operationId: "GetAllRoles"
+  parameters: []
+  responses:
+    200:
+      description: "An array of roles"
+      schema:
+        type: "array"
+        items:
+          $ref: "#/definitions/Role"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/ErrorResponse"
+post:
+  description: "Add new role"
+  operationId: "AddRole"
+  produces:
+  - "application/json"
+  parameters:
+  - in: "body"
+    name: "body"
+    description: "The role to create"
+    schema:
+      $ref: "#/definitions/Role"
+  responses:
+    200:
+      description: "Created"
+      schema:
+        type: "object"
+    default:
+      description: Error
+      schema:
+        $ref: "#/definitions/ErrorResponse"

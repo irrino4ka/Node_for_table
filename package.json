@@ -1,0 +1,33 @@
+{
+  "name": "ita_cloud",
+  "version": "0.0.1",
+  "private": true,
+  "description": "New Swagger API Project",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.12.3",
+    "js-yaml": "^3.10.0",
+    "json-refs": "^3.0.2",
+    "mongoose": "^4.13.6",
+    "multi-file-swagger": "^2.2.0",
+    "path": "^0.12.7",
+    "swagger-express-mw": "^0.1.0"
+  },
+  "engines": {
+    "node": "6.11.1",
+    "npm": "5.6.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.6.1",
+    "should": "^7.1.0",
+    "supertest": "^1.0.0"
+  },
+  "scripts": {
+    "start": "swagger project start",
+    "test": "swagger project test"
+  }
+}

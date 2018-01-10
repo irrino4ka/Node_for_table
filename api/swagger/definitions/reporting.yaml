@@ -1,0 +1,11 @@
+required:
+  - byte
+  - resource
+  - user
+properties:
+  byte:
+    type: number
+  resource:
+    type: string
+  user:
+    type: string

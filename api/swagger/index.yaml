@@ -1,0 +1,17 @@
+swagger: '2.0'
+host: localhost:10010 
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+
+produces:
+  - application/json
+info:
+  $ref: ./info/index.yaml
+paths:
+  $ref: ./paths/index.yaml
+definitions:
+  $ref: ./definitions/index.yaml

@@ -1,0 +1,9 @@
+required: 
+  - user
+properties:
+  role:
+    type: string
+  status:
+    type: string
+  user:
+    type: string

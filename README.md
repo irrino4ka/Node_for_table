@@ -1,11 +1,11 @@
 # ITA.Cloud API
- REST API for ITA cloud project : https://gitlab.com/vladRakin/andriy
+ REST API for ITA cloud project with Node.js and Swagger.js
  
 ### Installation
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-$ cd Lv-267-NodeJS
+
 $ npm install
 $ npm start
 $ swagger project edit
